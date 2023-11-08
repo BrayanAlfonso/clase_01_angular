@@ -1,6 +1,7 @@
 # Clase01Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+para crear componentes comando ng g c /nombre del componente/
 
 ## Development server
 

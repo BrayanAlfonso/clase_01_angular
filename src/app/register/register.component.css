@@ -1,0 +1,40 @@
+.h-10{
+    height: 10%;
+}
+.imagenBus{
+    height: 350px!important;
+}
+.z-index{
+    z-index: 999;
+}
+.ml-14{
+    margin-left: 14%;
+}
+
+.div-main > div {
+    margin: 30px; 
+}
+
+/* Estilo del contenedor principal */
+.contenedor-imagen {
+    position: relative;
+    width: 100%;
+
+}
+
+/* Estilo de la imagen */
+.contenedor-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta según el comportamiento deseado de la imagen */
+}
+
+/* Estilo de la capa negra opaca */
+.capa-negra-opaca {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+}

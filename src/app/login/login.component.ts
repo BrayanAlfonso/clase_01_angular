@@ -9,15 +9,10 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   constructor(public router: Router){
-    this.insertData()
+
   }
 
-  insertData(){
-    let credenciales = [{
-      nombre:"Brayan", 
-      contraseña:"Brayan123"}]
-    localStorage.setItem('data', JSON.stringify(credenciales))
-  }
+
 
   navegar(){
     let nombre = (document.getElementById("nombre") as HTMLInputElement).value
@@ -27,11 +22,20 @@ export class LoginComponent {
   let credencialesString = localStorage.getItem('data');
   if (credencialesString) {
     let credenciales = JSON.parse(credencialesString);
-    credenciales.map((credencial: { nombre: string }) => {
-      console.log(credencial.nombre);
+    credenciales.map((credencial: { nombre: string, contraseña:string }) => {
+      console.log(credencial.nombre,credencial.contraseña);
+      if(credencial.nombre===nombre && credencial.contraseña===password){
+        console.log('Funciona redireccion a dashboard')
+        this.router.navigateByUrl('/dashboard')
+      }else{
+        console.log('Funciona redireccion a register')
+        this.navegarRegister()
+      }
     });
   }
-    
-    // this.router.navigateByUrl('/register')
+  }
+
+  navegarRegister(){
+    this.router.navigateByUrl('/register')
   }
 }

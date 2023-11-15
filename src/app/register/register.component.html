@@ -1,1 +1,78 @@
-<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/8232721784.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+<body>
+    <header class="vw-100 position-fixed bg-transparent h-10 d-flex justify-content-end z-index">
+        <div class="w-50">
+            <ul class="d-flex justify-content-around align-items-center list-unstyled h-100 text-white">
+                <li class="h-100 d-flex align-items-center">Sobre nosotros</li>
+                <li class="h-100 d-flex align-items-center">Nuestros servicios</li>
+                <li class="h-100 d-flex align-items-center">Contactanos</li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="contenedor-imagen">
+            <div class="capa-negra-opaca"></div>
+            <img class="w-100 imagenBus" src="assets/images/bus.jpg" alt="Descripción de la imagen">
+        </div>  
+
+        <div class="d-flex vw-100 h-100 justify-content-center">
+            <div class="w-50 h-100 d-flex flex-column align-items-center p-5">
+                <img src="assets/images/register.jpg" alt="Imagen register">
+                <p>Registrate con nosotros para tener una experiencia unica</p>
+            </div>
+            <div class="w-25 h-100 d-flex flex-column align-items-center justify-content-center p-5">
+                <h4>Registrate</h4>
+                <div class="form w-100">
+                    <div class="d-flex justify-content-around div-main">
+                        <div>
+                            <label for="tipoID" class="form-label">Tipo de identificación</label>
+                            <select name="tipoID" id="tipoID" class="form-select border border-success">
+                                <option value="CC">CC</option>
+                                <option value="TI">TI</option>
+                                <option value="CE">CE</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="ID" class="form-label">Número de identificación</label>
+                            <input name="ID" id="ID" class="form-control border border-success">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around div-main">
+                        <div>
+                            <label for="name" class="form-label">Nombre:</label>
+                            <input name="name" id="name" class="form-control border border-success">
+                        </div>
+                        <div>
+                            <label for="pass" class="form-label">Contraseña</label>
+                            <input name="pass" id="pass" class="form-control border border-success">
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline ml-14">
+                        <input type="checkbox" name="check" id="check" class="form-check-input border border-success">
+                        <label for="check">Aceptar terminos y condiciones</label>
+                    </div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <button (click)="createUser()" class="btn btn-outline-success">Registrar</button>
+                    </div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <button (click)="navegarLogin()" class="btn btn-link">Regresar al login</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

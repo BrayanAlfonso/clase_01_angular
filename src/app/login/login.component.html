@@ -15,21 +15,29 @@
         <div class=" w-50 vh-100 d-flex justify-content-center align-items-center">
             <div class="bg-light p-5">
                 <div>
+                    {{Saludo}}
                     <h1>Inicio de sesión</h1>
+                    {{storage}}
                 </div>
                 <div>
                     <label for="" class="form-label">Nombre:</label><br>
-                    <input class="w-100 form-control border border-success" type="text" id="nombre">
+                    <!-- Capturar valores de un formulario en tiempo real -->
+                    <input class="w-100 form-control border border-success" type="text" id="nombre" >
+                    <!-- {{campo}} -->
                 </div>
                 <div>
                     <label for="" class="form-label">Contraseña:</label><br>
                     <input class="w-100 form-control border border-success" type="text" id="password">
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
-                    <button (click)="navegar()" class="btn btn-outline-success">Login</button>
+                    <button (click)="navegar()" class="btn btn-outline-success mx-2">Login</button>
+                    <!-- <button (click)="saludarMessage()" class="btn btn-outline-success mx-2">Da click para el saludo</button>
+                    <button (click)="saveData()" class="btn btn-outline-success mx-2">Save data</button>
+                    <button (click)="getStorage()" class="btn btn-outline-success mx-2">Obtener</button> -->
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <button (click)="navegarRegister()" class="btn btn-link">Registrate aqui!</button>
+                    
                 </div>
             </div>
         </div>

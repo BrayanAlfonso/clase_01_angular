@@ -4,3 +4,13 @@
 .z-index{
     z-index: 999;
 }
+
+.green-snackbar{
+    background-color: rgb(65, 252, 134)!important;
+    color: white;
+}
+
+.red-snackbar{
+    background-color: #F44336!important;
+    color: white;
+}

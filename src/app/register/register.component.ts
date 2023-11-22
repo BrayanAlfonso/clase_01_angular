@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+
 
 interface Credencial {
   tipoID: string;
@@ -15,29 +17,14 @@ interface Credencial {
 })
 export class RegisterComponent {
    public credenciales: Credencial[] = [];
-  constructor(public router: Router){
-    this.insertData()
+  constructor(public router: Router, private _snackBar: MatSnackBar){
+    const credencialesString=localStorage.getItem("data")
+    this.credenciales=credencialesString?JSON.parse(credencialesString):[]
   }
-  insertData(){
-    this.credenciales = [
-      {
-        tipoID: "CC",
-        ID: "1019762839",
-        nombre: "Brayan",
-        contraseña: "Brayan123"
-      },
-      {
-        tipoID: "CC",
-        ID: "123456789",
-        nombre: "Juan",
-        contraseña: "Juan123"
-      }
-    ];
 
-    localStorage.setItem('data', JSON.stringify(this.credenciales))
-  }
 
   createUser(){
+    
     const tipoID = (document.getElementById("tipoID") as HTMLSelectElement).value
     const ID = (document.getElementById("ID") as HTMLInputElement).value
     const nombre = (document.getElementById("name") as HTMLInputElement).value

@@ -5,22 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/8232721784.js" crossorigin="anonymous"></script>
+
     <title>Register</title>
 </head>
 <body>
-    <header class="vw-100 position-fixed bg-primary h-10 d-flex justify-content-between px-5 z-index bg-azul">
+    <header class="vw-100 position-fixed h-10 d-flex justify-content-between px-5 z-index bg-azul">
         <div class="d-flex justify-content-center align-items-center">
             <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around">
             <ul class="d-flex justify-content-around align-items-center list-unstyled text-white lista2">
-                <li class="h-100 d-flex align-items-center mx-2">Sobre nosotros</li>
+                <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative" >Opciones de empleo
+                    <div class="opciones-adicionales position-absolute top-100 bg-azul">
+                        <ul class="list-unstyled" id="listaOpEmpleo">
+                            <li>Buscar empleo</li>
+                            <li>Consultar postulaciones</li>
+                            <li>Hacer hoja de vida</li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="h-100 d-flex align-items-center mx-2">Nuestros servicios</li>
                 <li class="h-100 d-flex align-items-center mx-2">Contactanos</li>
                 <li><button class="btn text-white" (click)="navegarLogin()"><i class="fas fa-user" style="color: black;"></i>Cerrar sesión</button></li>
             </ul>
         </div>
+
     </header>
+        <div class="divBorde bg-azul h-30 d-flex flex-column align-items-center justify-content-center">
+            <div class="mt-4 text-white">
+                <h1>Bienvenido</h1>
+            </div>
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="bg-secondary mx-3 w-25 p-4">
+                    <h1>Buscar empleo</h1>
+                </div>
+                <div class="bg-secondary mx-3 w-25 p-4">
+                    <i class="fas fa-user" style="color: black;"></i>
+                    <h1>Buscar candidatos</h1>
+                </div>
+            </div>
+        </div>
     <main class="pt-100" >
 
         <div class="d-flex vw-100 h-100 justify-content-center">

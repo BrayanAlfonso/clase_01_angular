@@ -37,3 +37,14 @@
   #imagenes:hover #AngularLogoHover {
     opacity: 1;
   }
+
+  .error{
+    border: 1px solid red;
+  }
+  .success{
+    border: 1px solid green;
+  }
+
+  .fbInput{
+    color: red;
+  }

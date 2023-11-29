@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 interface Credencial {
   tipoID: string;
   ID: string;
-  nombre: string;
+  email: string;
   contraseña: string;
 }
 
@@ -21,7 +21,11 @@ export class LoginComponent {
   Saludo: String = ''
   credencialEncontrada:boolean=false
   // campo=''
-  storage:String=''
+  storage:string=''
+  inputEmail:string=''
+  inputPassword:string=''
+  infoEmail:string=''
+  infoPassword:string=''
 
   constructor(public router: Router, private _snackBar: MatSnackBar){
     if(!localStorage.getItem("data")){
@@ -35,13 +39,13 @@ export class LoginComponent {
       {
         tipoID: "CC",
         ID: "1019762839",
-        nombre: "Brayan",
+        email: "Brayanpaloma19b@gmail.com",
         contraseña: "Brayan123"
       },
       {
         tipoID: "CC",
         ID: "123456789",
-        nombre: "Juan",
+        email: "Juan@gmail.com",
         contraseña: "Juan123"
       }
     ];
@@ -49,12 +53,15 @@ export class LoginComponent {
     localStorage.setItem('data', JSON.stringify(this.credenciales))
   }
 
-  buscarUsuario(nombre: String, password:String){
+
+
+
+  buscarUsuario(email: String, password:String){
     let credencialesString = localStorage.getItem('data');
     if (credencialesString) {
       let credenciales = JSON.parse(credencialesString);  
-      credenciales.some((credencial: { nombre: string, contraseña:string }) => {
-        if(credencial.nombre==nombre && credencial.contraseña==password){
+      credenciales.some((credencial: { email: string, contraseña:string }) => {
+        if(credencial.email==email && credencial.contraseña==password){
           this.credencialEncontrada=true
           console.log(this.credencialEncontrada)
         }
@@ -89,13 +96,48 @@ export class LoginComponent {
   //   this.Saludo="Hola inmundos"
   // }
 
-  navegar(){
-    let nombre = (document.getElementById("nombre") as HTMLInputElement).value
-    let password = (document.getElementById("password") as HTMLInputElement).value
-    console.log(nombre,password)
+  validarCampos(){
+    console.log("Entro al metodo")
+    const emailRegex:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const passwordRegex: RegExp =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
-    if( nombre!="" && password!="" && nombre!=null && password!=null && nombre!=undefined && password!=undefined){
-      this.buscarUsuario(nombre,password)
+    const email = (document.getElementById("email") as HTMLInputElement)
+    const password = (document.getElementById("password") as HTMLInputElement)
+
+
+    if(this.inputEmail!=null || this.inputEmail!= ''){
+      console.log("Entro al if")
+      if(emailRegex.test(this.inputEmail)){
+        email.classList.remove('error')
+        email.classList.add('success')
+        this.infoEmail=''
+      }else{
+        email.classList.remove('success')
+        email.classList.add('error')
+        this.infoEmail='Lo sentimos, por favor ingresa un correo valido.'
+      }
+    }
+    if(this.inputPassword!=null || this.infoPassword!=''){
+      console.log("")
+      if(passwordRegex.test(this.inputPassword)){
+        password.classList.remove('error')
+        password.classList.add('success')
+        this.infoPassword=''
+      }else{
+        password.classList.remove('success')
+        password.classList.add('error')
+        this.infoPassword='Lo sentimos, ingresa una contraseña valida.'
+      }
+    }
+  }
+
+  navegar(){
+    let email = (document.getElementById("email") as HTMLInputElement).value
+    let password = (document.getElementById("password") as HTMLInputElement).value
+    console.log(email,password)
+
+    if( email!="" && password!="" && email!=null && password!=null && email!=undefined && password!=undefined){
+      this.buscarUsuario(email,password)
     }else{
       // Simple message with an action.
       this._snackBar.open("No has completado los campos solicitados","",{

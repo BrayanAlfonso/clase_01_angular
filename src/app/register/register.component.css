@@ -41,8 +41,23 @@
     background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
 }
 .bg-azul{
-    background-color: #1976D2;
+    background-color: #104b86!important;
 }
 .icon{
     width: 70px;
 }
+
+.error{
+    border: 1px solid red;
+  }
+  .success{
+    border: 1px solid green;
+  }
+
+  .fbInput{
+    color: red;
+
+  }
+  #divContentForms div{
+    width: 40%;
+  }

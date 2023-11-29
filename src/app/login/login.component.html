@@ -14,21 +14,23 @@
             <img src="assets/images/angularjs-logo.png" alt="AngularJS Img" class="hidden" id="AngularLogoHover" />
         </div>
         <div class=" w-50 vh-100 d-flex justify-content-center align-items-center" >
-            <div class="bg-light p-5">
+            <div class="bg-light p-5 w-75">
                 <div>
                     {{Saludo}}
                     <h1>Inicio de sesión</h1>
                     {{storage}}
                 </div>
-                <div>
-                    <label for="" class="form-label">Nombre:</label><br>
+                <div class="divEmail">
+                    <label for="email" class="form-label">Email:</label><br>
                     <!-- Capturar valores de un formulario en tiempo real -->
-                    <input class="w-100 form-control border border-success" type="text" id="nombre" >
+                    <input class="w-100 form-control" type="email" id="email" (change)="validarCampos()" [(ngModel)]="inputEmail" >
+                    <span class="fbInput">{{infoEmail}}</span>
                     <!-- {{campo}} -->
                 </div>
-                <div>
-                    <label for="" class="form-label">Contraseña:</label><br>
-                    <input class="w-100 form-control border border-success" type="text" id="password">
+                <div class="divPassword">
+                    <label for="password" class="form-label">Contraseña:</label><br>
+                    <input class="w-100 form-control" type="text" id="password" (change)="validarCampos()" [(ngModel)]="inputPassword">
+                    <span class="fbInput">{{infoPassword}}</span>
                 </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <button (click)="navegar()" class="btn btn-outline-success mx-2">Login</button>

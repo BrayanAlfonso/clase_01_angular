@@ -77,30 +77,122 @@ main p {
 
 .opciones-adicionales{
     padding: 10px;
-    width: 90%;
+    width: 200px;
     border: white 1px solid;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
     opacity: 0;
     transition: 0.4s;
+    z-index: 1;
+    padding: 10px;
 }
-li .opciones-adicionales:hover{
-    opacity:1;
-    
+.opciones-adicionales li{
+    border-bottom: 1px solid #d1cccc;
+    border-radius: 0;
 }
+.despliegue:hover > .opciones-adicionales {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto; 
+  }
 
-#listaOpEmpleo li:hover{
-    background-color: rgb(0, 123, 255,0.3);
-    cursor: pointer;
+  .menuUser{
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    top: 110%;
+    left: -220%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 1;
+    border: 1px solid white;
 }
+.liMenuUser:hover > .menuUser {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto; 
+  }
+  .widthLista{
+    width: 250px;
+  }
+
+  #listaPerfil li{
+    border-bottom: 1px solid #d1cccc;
+    border-radius: 0;
+    margin-bottom: 10px;
+  }
+  
+  #listaOpEmpleo li:hover {
+    background-color: rgba(128, 128, 128, 0.39);
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+  }
+
+  .btn-close-session{
+    background-color: #004f83;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  #listaPerfil li:hover{
+    background-color: rgba(128, 128, 128, 0.39);
+    cursor: pointer;
+    border-bottom: 1px solid black;
+  }
+  
 .h-30{
-    height: 35%;
+    height: 30%;
     border-radius: 0 0 50% 50%/0 0 30% 30%;
     width: 110%;
     margin: 0 -5%;
 
 }
+h1{
+    margin: 0;
+}
+.btn{
+    background-color: transparent;
+}
 
 html{
     overflow-x: hidden;
 }
+
+.p-absolute{
+    position: absolute;
+    top: 110%;
+}
+
+.border-radius10{
+    border-radius: 10px;
+}
+
+.bg-gradient {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle,#004f83 0,#00ADD9 100%);
+  }
+  
+  .bg-gradient::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 0%, rgba(255, 255, 255, 0.2) 70%);
+    transform: scale(0);
+    transform-origin: center center;
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+  
+  .bg-gradient:hover::before {
+    transform: scale(2);
+  }
+  
+  .margin-icon{
+    margin: 0px 0px 0px 80px;
+  }
+
+

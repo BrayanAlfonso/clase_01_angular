@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
+  
 })
 export class DashboardComponent {
+  nombreJS=JSON.stringify(localStorage.getItem('email'))
+  nombre: String = JSON.parse(this.nombreJS)
   titulo:String=''
   contenido:String=''
   constructor(public router: Router){

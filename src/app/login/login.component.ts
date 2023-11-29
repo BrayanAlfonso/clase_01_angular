@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 interface Credencial {
   tipoID: string;
   ID: string;
+  nombre:string;
   email: string;
   contraseña: string;
 }
@@ -18,7 +19,7 @@ interface Credencial {
 
 export class LoginComponent {
   public credenciales: Credencial[] = [];
-  Saludo: String = ''
+
   credencialEncontrada:boolean=false
   // campo=''
   storage:string=''
@@ -39,12 +40,14 @@ export class LoginComponent {
       {
         tipoID: "CC",
         ID: "1019762839",
+        nombre:'Brayan',
         email: "Brayanpaloma19b@gmail.com",
-        contraseña: "Brayan123"
+        contraseña: "Brayan123@"
       },
       {
         tipoID: "CC",
         ID: "123456789",
+        nombre:"Juan",
         email: "Juan@gmail.com",
         contraseña: "Juan123"
       }
@@ -60,8 +63,9 @@ export class LoginComponent {
     let credencialesString = localStorage.getItem('data');
     if (credencialesString) {
       let credenciales = JSON.parse(credencialesString);  
-      credenciales.some((credencial: { email: string, contraseña:string }) => {
+      credenciales.some((credencial: { email: string, contraseña:string,  nombre:string}) => {
         if(credencial.email==email && credencial.contraseña==password){
+          localStorage.setItem('email',credencial.nombre)
           this.credencialEncontrada=true
           console.log(this.credencialEncontrada)
         }

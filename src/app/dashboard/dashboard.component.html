@@ -1,22 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/8232721784.js" crossorigin="anonymous"></script>
 
-    <title>Register</title>
-</head>
-<body>
-    <header class="vw-100 position-fixed h-10 d-flex justify-content-between px-5 z-index bg-azul">
+    <header class=" mt-5 vw-100  h-10 d-flex justify-content-between px-5 z-index bg-azul">
         <div class="d-flex justify-content-center align-items-center">
             <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
         </div>
         <div class="w-50 d-flex align-items-center justify-content-around">
             <ul class="d-flex justify-content-around align-items-center list-unstyled text-white lista2">
-                <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative" >Opciones de empleo
-                    <div class="opciones-adicionales position-absolute top-100 bg-azul">
+                <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative despliegue" >Opciones de empleo
+                    <div class="opciones-adicionales p-absolute bg-light text-dark">
                         <ul class="list-unstyled" id="listaOpEmpleo">
                             <li>Buscar empleo</li>
                             <li>Consultar postulaciones</li>
@@ -26,21 +16,36 @@
                 </li>
                 <li class="h-100 d-flex align-items-center mx-2">Nuestros servicios</li>
                 <li class="h-100 d-flex align-items-center mx-2">Contactanos</li>
-                <li><button class="btn text-white" (click)="navegarLogin()"><i class="fas fa-user" style="color: black;"></i>Cerrar sesión</button></li>
+                <li class="liMenuUser position-relative margin-icon">
+                    <i class="fas fa-user fa-2x " style="color: white;"></i>
+                    <div class="menuUser position-absolute p-4 bg-light text-dark widthLista d-flex flex-column">
+                        <h1>Bienvenido {{nombre}}</h1>
+                        <h3>Tu perfil</h3>
+                         <ul class="list-unstyled" id="listaPerfil">
+                            <li>Perfil</li>
+                            <li>Actualizar datos</li>
+                            <li>Hoja de vida</li>
+                            <li>Configuracion</li>
+                         </ul>
+                        <button class="text-white btn-close-session" (click)="navegarLogin()">Cerrar sesión</button>
+                    </div>
+                    
+                </li>
             </ul>
         </div>
 
     </header>
         <div class="divBorde bg-azul h-30 d-flex flex-column align-items-center justify-content-center">
             <div class="mt-4 text-white">
-                <h1>Bienvenido</h1>
+                <h1>Bienvenido {{nombre}}</h1>
             </div>
             <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="bg-secondary mx-3 w-25 p-4">
+                <div class="mx-3 w-25 p-4 d-flex justify-content-around align-items-center m-4 border-radius10 bg-gradient text-white " >
+                    <i class="fa-solid fa-magnifying-glass fa-4x" style="color: white;"></i>
                     <h1>Buscar empleo</h1>
                 </div>
-                <div class="bg-secondary mx-3 w-25 p-4">
-                    <i class="fas fa-user" style="color: black;"></i>
+                <div class="mx-3 w-25 p-4 d-flex justify-content-around align-items-center m-4 border-radius10 bg-gradient text-white " >
+                    <i class="fas fa-user fa-4x " style="color: white;"></i>
                     <h1>Buscar candidatos</h1>
                 </div>
             </div>
@@ -75,5 +80,4 @@
 
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
+

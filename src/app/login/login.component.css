@@ -5,12 +5,35 @@
     z-index: 999;
 }
 
-.green-snackbar{
-    background-color: rgb(65, 252, 134)!important;
+::ng-deep .green-snackbar {
+    background-color: green;
     color: white;
-}
+  }
+  
+  ::ng-deep .red-snackbar {
+    background-color: red;
+    color: white;
+  }
 
-.red-snackbar{
-    background-color: #F44336!important;
-    color: white;
-}
+  #imagenes{
+    position: relative;
+  }
+  #AngularLogo,
+  #AngularLogoHover {
+    position: absolute;
+    width: 600px;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  #AngularLogoHover {
+    opacity: 0;
+    
+  }
+  
+  #imagenes:hover #AngularLogo{
+    opacity: 0;
+  }
+  
+  #imagenes:hover #AngularLogoHover {
+    opacity: 1;
+  }

@@ -8,39 +8,40 @@
     <title>Register</title>
 </head>
 <body>
-    <header class="vw-100 position-fixed bg-transparent h-10 d-flex justify-content-end z-index">
-        <div class="w-50">
-            <ul class="d-flex justify-content-around align-items-center list-unstyled h-100 text-white">
-                <li class="h-100 d-flex align-items-center">Sobre nosotros</li>
-                <li class="h-100 d-flex align-items-center">Nuestros servicios</li>
-                <li class="h-100 d-flex align-items-center">Contactanos</li>
-                <li><button class="btn btn-outline-success" (click)="navegarLogin()"><i class="fas fa-user" style="color: blue;"></i>Cerrar sesión</button></li>
+    <header class="vw-100 position-fixed bg-primary h-10 d-flex justify-content-between px-5 z-index bg-azul">
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
+        </div>
+        <div class="w-50 d-flex align-items-center justify-content-around">
+            <ul class="d-flex justify-content-around align-items-center list-unstyled text-white lista2">
+                <li class="h-100 d-flex align-items-center mx-2">Sobre nosotros</li>
+                <li class="h-100 d-flex align-items-center mx-2">Nuestros servicios</li>
+                <li class="h-100 d-flex align-items-center mx-2">Contactanos</li>
+                <li><button class="btn text-white" (click)="navegarLogin()"><i class="fas fa-user" style="color: black;"></i>Cerrar sesión</button></li>
             </ul>
         </div>
     </header>
-    <main>
-        <div class="contenedor-imagen">
-            <div class="capa-negra-opaca"></div>
-            <img class="w-100 imagenBus" src="assets/images/bus.jpg" alt="Descripción de la imagen">
-        </div>  
+    <main class="pt-100" >
 
         <div class="d-flex vw-100 h-100 justify-content-center">
-            <div class="w-50 h-100 d-flex flex-column align-items-center p-5">
+            <div class="w-25 h-100 d-flex flex-column align-items-center p-5 border-right-black">
                 <div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem mollitia excepturi suscipit a, voluptates numquam, consequatur quam nam, in voluptas cupiditate maxime. Beatae pariatur, dolore architecto neque sequi magnam nihil?</p>
+                    <ul class="lista list-unstyled">
+                        <li (click)="mostrarContenido(1)">¿Qué es angular?</li>
+                        <li (click)="mostrarContenido(2)">¿Para que sirve angular?</li>
+                        <li (click)="mostrarContenido(3)">Sintaxis</li>
+                        <li (click)="mostrarContenido(4)">Ejemplo</li>
+                        <li (click)="mostrarContenido(5)">Material angular</li>
+                    </ul>
                 </div>
             </div>
-            <div class="w-25 h-100 d-flex flex-column align-items-center justify-content-center p-5">
+            <div class="w-75 h-100 d-flex flex-column align-items-center justify-content-center p-5">
                 <h4>Bienvenido al dasboard!</h4>
                 <div>
-                    <p>¿Que deseas hacer?</p>
+                    <p>{{titulo}}</p>
                 </div>
                 <div>
-                    <p>1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia odio facere excepturi vitae quam. Non aspernatur exercitationem error fugiat mollitia ducimus dolorem libero, id officia, delectus debitis excepturi corrupti?</p>
-                    <p>2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia odio facere excepturi vitae quam. Non aspernatur exercitationem error fugiat mollitia ducimus dolorem libero, id officia, delectus debitis excepturi corrupti?</p>
-                    <p>3: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia odio facere excepturi vitae quam. Non aspernatur exercitationem error fugiat mollitia ducimus dolorem libero, id officia, delectus debitis excepturi corrupti?</p>
-                    <p>4: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia odio facere excepturi vitae quam. Non aspernatur exercitationem error fugiat mollitia ducimus dolorem libero, id officia, delectus debitis excepturi corrupti?</p>
-                    <p>5: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia odio facere excepturi vitae quam. Non aspernatur exercitationem error fugiat mollitia ducimus dolorem libero, id officia, delectus debitis excepturi corrupti?</p>
+                    {{contenido}}
                 </div>
             </div>
             

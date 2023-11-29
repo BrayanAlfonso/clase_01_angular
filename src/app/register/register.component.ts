@@ -40,6 +40,10 @@ export class RegisterComponent {
     this.credenciales.push(nuevasCredenciales)
 
     localStorage.setItem('data', JSON.stringify(this.credenciales));
+    this._snackBar.open("Usuario registrado ","",{
+      duration:4000,
+      panelClass: ['red-snackbar']
+    })
     this.clearForm()
   }
 

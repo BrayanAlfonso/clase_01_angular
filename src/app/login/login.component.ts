@@ -19,6 +19,7 @@ interface Credencial {
 export class LoginComponent {
   public credenciales: Credencial[] = [];
   Saludo: String = ''
+  credencialEncontrada:boolean=false
   // campo=''
   storage:String=''
 
@@ -51,24 +52,27 @@ export class LoginComponent {
   buscarUsuario(nombre: String, password:String){
     let credencialesString = localStorage.getItem('data');
     if (credencialesString) {
-      let credenciales = JSON.parse(credencialesString);
+      let credenciales = JSON.parse(credencialesString);  
       credenciales.some((credencial: { nombre: string, contraseña:string }) => {
-        let credencialEncontrada = credencial.nombre==nombre && credencial.contraseña==password
-        console.log(credencialEncontrada)
-        if(credencialEncontrada){
-          this._snackBar.open("Bienvenido al login","",{
-            duration:4000,
-            panelClass: ['green-snackbar']
-          })
-          this.router.navigateByUrl('/dashboard')
-        }else{
-            // Simple message with an action.
-            this._snackBar.open("Lo sentimos tus credenciales de acceso son incorrectas","",{
-              duration:4000,
-              panelClass: ['red-snackbar']
-            })
-          }
+        if(credencial.nombre==nombre && credencial.contraseña==password){
+          this.credencialEncontrada=true
+          console.log(this.credencialEncontrada)
+        }
       });
+
+      if(this.credencialEncontrada){
+        this._snackBar.open("Bienvenido al login","",{
+          duration:4000,
+          panelClass: ['green-snackbar']
+        })
+        this.router.navigateByUrl('/dashboard')
+      }else{
+          // Simple message with an action.
+          this._snackBar.open("Lo sentimos tus credenciales de acceso son incorrectas","",{
+            duration:4000,
+            panelClass: ['red-snackbar']
+          })
+        }
     }
   }
 
@@ -100,6 +104,8 @@ export class LoginComponent {
 
     }
   }
+
+
 
   navegarRegister(){
     this.router.navigateByUrl('/register')

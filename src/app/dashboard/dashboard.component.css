@@ -1,9 +1,7 @@
 .h-10{
     height: 10%;
 }
-.imagenBus{
-    height: 350px!important;
-}
+
 .z-index{
     z-index: 999;
 }
@@ -15,26 +13,64 @@
     margin: 30px; 
 }
 
-/* Estilo del contenedor principal */
-.contenedor-imagen {
-    position: relative;
-    width: 100%;
+
+
+.pt-100{
+    padding-top: 100px;
+}
+
+.lista li{
+    margin: 50px 0px 50px 0;
+}
+
+
+
+ul.lista li {
+    cursor: pointer;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+ul.lista li:hover {
+    background-color: #eee; 
+    border-radius: 10px;
+}
+
+
+.lista2 li{
+    padding: 10px;
+    border-radius: 10px;
+}
+.lista2 li:hover{
+    background-color: #007bff;
 
 }
 
-/* Estilo de la imagen */
-.contenedor-imagen img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta según el comportamiento deseado de la imagen */
+/* Estilos para la barra que separa el menú del contenido */
+.border-right-black{
+    margin-top: 20px;
+    border-right: 1px solid black; /* Color y grosor de la barra izquierda */
 }
 
-/* Estilo de la capa negra opaca */
-.capa-negra-opaca {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con 50% de opacidad */
+/* Estilos para el título y el párrafo */
+main h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.bg-azul{
+    background-color: #1976D2;
+}
+
+.icon{
+    width: 70px;
+}
+
+.btn:hover{
+    background-color: rgb(0, 0, 0, 0.5);
 }

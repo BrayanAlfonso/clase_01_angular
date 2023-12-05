@@ -19,6 +19,32 @@ export interface Credencial {
   ofertas:number[]
 }
 
+export interface Estudio {
+  nivel: string;
+  institucion: string;
+  fechaInicio: Date;
+  fechaFin?: Date; // La fechaFin es opcional, ya que puede estar estudiando actualmente
+}
+
+export interface Idioma {
+  nombre: string;
+  nivel: string;
+}
+
+export interface Conocimiento {
+  nombre: string;
+  nivel: string;
+}
+
+export interface Curriculum {
+  id: string;
+  perfil: string;
+  estudios: Estudio[];
+  idiomas: Idioma[];
+  conocimientos: Conocimiento[];
+}
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,6 +54,7 @@ export class AppComponent {
   title = 'clase_01_angular';
   public ofertas: Oferta[] = [];
   public credenciales: Credencial[] = [];
+  public curriculums:Curriculum[]=[];
 
   constructor(public router: Router, private _snackBar: MatSnackBar){
     if(!localStorage.getItem("ofertas")){
@@ -36,6 +63,10 @@ export class AppComponent {
 
     if(!localStorage.getItem("data")){
       this.insertDataCredenciales()
+    }
+
+    if(!localStorage.getItem("curriculums")){
+      this.insertDataCurriculum()
     }
     
   }
@@ -98,5 +129,93 @@ export class AppComponent {
     localStorage.setItem('ofertas', JSON.stringify(this.ofertas))
   }
 
+  insertDataCurriculum(){
+
+    const newCurriculum:Curriculum= {
+      id: 'Brayanpaloma19b@gmail.com',
+      perfil: 'Desarrollador Full Stack',
+      estudios: [
+        {
+          nivel: 'Universitario',
+          institucion: 'Universidad X',
+          fechaInicio: new Date('2016-09-01'),
+          fechaFin: new Date('2020-06-30'),
+        },
+        {
+          nivel: 'Certificación',
+          institucion: 'Curso de Desarrollo Web',
+          fechaInicio: new Date('2021-01-15'),
+        },
+      ],
+      idiomas: [
+        {
+          nombre: 'Inglés',
+          nivel: 'Avanzado',
+        },
+        {
+          nombre: 'Español',
+          nivel: 'Nativo',
+        },
+      ],
+      conocimientos: [
+        {
+          nombre: 'JavaScript',
+          nivel: 'Avanzado',
+        },
+        {
+          nombre: 'React',
+          nivel: 'Intermedio',
+        },
+        {
+          nombre: 'Node.js',
+          nivel: 'Avanzado',
+        },
+      ],
+    };
+
+    const newCurriculum2: Curriculum = {
+      id: 'Juan@gmail.com',
+      perfil: 'Diseñador UX/UI',
+      estudios: [
+        {
+          nivel: 'Universitario',
+          institucion: 'Universidad Y',
+          fechaInicio: new Date('2015-09-01'),
+          fechaFin: new Date('2019-06-30'),
+        },
+        {
+          nivel: 'Certificación',
+          institucion: 'Curso de Diseño UX/UI',
+          fechaInicio: new Date('2020-01-15'),
+        },
+      ],
+      idiomas: [
+        {
+          nombre: 'Inglés',
+          nivel: 'Intermedio',
+        },
+        {
+          nombre: 'Francés',
+          nivel: 'Básico',
+        },
+      ],
+      conocimientos: [
+        {
+          nombre: 'Figma',
+          nivel: 'Avanzado',
+        },
+        {
+          nombre: 'Sketch',
+          nivel: 'Intermedio',
+        },
+        {
+          nombre: 'Adobe XD',
+          nivel: 'Avanzado',
+        },
+      ],
+    };
+    this.curriculums.push(newCurriculum,newCurriculum2)
+    localStorage.setItem('curriculums', JSON.stringify(this.curriculums))
+  }
   
 }

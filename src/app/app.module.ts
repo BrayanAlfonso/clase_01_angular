@@ -11,6 +11,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsearchComponent } from './jobsearch/jobsearch.component';
 import { CurriculumComponent } from './curriculum/curriculum.component';
+import { JobopeningsComponent } from './jobopenings/jobopenings.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CurriculumComponent } from './curriculum/curriculum.component';
     RegisterComponent,
     DashboardComponent,
     JobsearchComponent,
-    CurriculumComponent
+    CurriculumComponent,
+    JobopeningsComponent
   ],
   imports: [
     BrowserModule,

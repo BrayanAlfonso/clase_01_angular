@@ -8,7 +8,7 @@
             <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative despliegue" >Opciones de empleo
                 <div class="opciones-adicionales p-absolute bg-light text-dark">
                     <ul class="list-unstyled" id="listaOpEmpleo">
-                        <li>Buscar empleo</li>
+                        <li (click)="navegarJobSearch()">Buscar empleo</li>
                         <li>Consultar postulaciones</li>
                         <li (click)="navegarCurriculum()">Hacer hoja de vida</li>
                     </ul>
@@ -35,37 +35,112 @@
 
 </header>
 
-<main class="pt-100" >
+
+<main class="pt-100">
     <div class="mx-5 my-3">
         <h1 class="text-big">Hoja de vida </h1>
     </div>
-    <div class="d-flex vw-100 h-100 flex-column  border border-1 mx-5 margin-button">
-
-        <div class="d-flex align-items-center ">
-            <div><img class="imgCirculo"src="../../assets/images/perfil.jpg" alt="imagen perfil"></div>
+    <div class="d-flex vw-100 h-100 flex-column border border-1 mx-5 margin-button p-5 curriculum">
+        <div class="d-flex align-items-center">
+            <div><img class="imgCirculo" src="../../assets/images/perfil.jpg" alt="imagen perfil"></div>
             <div class="d-flex flex-column mx-5">
                 <p class="text-medium"><strong>{{email}}</strong></p>
                 <p class="text-small">{{nombre}}</p>
             </div>
         </div>
         <div class="m-5 position-relative">
-            <h1 class="text-big">Perfil</h1><span class="position-absolute update-icon"><i class="fa-regular fa-pen-to-square"></i></span>
-            <p class="text-medium">Desarrollador full-stack</p>
+        <h1 class="text-big">Perfil</h1><span class="position-absolute update-icon" *ngIf="!modoEdicion" (click)="activarEdicion()"><i class="fa-regular fa-pen-to-square"></i></span>
+            <p class="text-medium" *ngIf="!modoEdicion">{{curriculumUsuario?.perfil}}</p>
+            <input *ngIf="modoEdicion" [(ngModel)]="curriculumPerfil" class="form-control w-25 my-3">
+            <button *ngIf="modoEdicion" (click)="guardarCambios()" class="btn-close-session text-white my-3">Guardar</button>
+        </div>  
+        <!-- Estudios -->
+<div class="m-5 position-relative">
+    <h1 class="text-big">Estudios</h1>
+    <span class="position-absolute update-icon" *ngIf="!modoEdicionEstudios" (click)="activarEdicionEstudios()">
+        <i class="fa-regular fa-pen-to-square"></i>
+    </span>
+    <ng-container *ngIf="!modoEdicionEstudios">
+        <p class="text-medium" *ngFor="let estudio of curriculumUsuario?.estudios">
+            {{estudio.nivel}} en {{estudio.institucion}}
+        </p>
+    </ng-container>
+    <div *ngIf="modoEdicionEstudios">
+        <div *ngFor="let estudio of curriculumEstudios; let i = index" class="d-flex w-100 my-3">
+            <div class="w-50">
+                <input [(ngModel)]="curriculumEstudios[i].nivel" class="form-control my-3" placeholder="Nivel">
+                <input [(ngModel)]="curriculumEstudios[i].institucion" class="form-control my-3" placeholder="Institución">
+            </div>
+            <div class="d-flex justify-content-center align-items-center mx-5">
+                <button (click)="eliminarEstudio(i)" class="btn-delete">Eliminar</button>
+            </div>
+            
         </div>
-        <div class="m-5 position-relative">
-            <h1 class="text-big">Estudios</h1><span class="position-absolute update-icon"><i class="fa-regular fa-pen-to-square"></i></span>
-            <p class="text-medium">Tecnico</p>
+        <button (click)="agregarEstudio()" class="m-3 btn-add">Agregar Estudio</button>
+        <button (click)="guardarCambiosEstudios()" class="m-3 text-white btn-close-session">Guardar</button>
+    </div>
+</div>
+
+<!-- Idiomas -->
+<div class="m-5 position-relative">
+    <h1 class="text-big">Idiomas</h1>
+    <span class="position-absolute update-icon" *ngIf="!modoEdicionIdiomas" (click)="activarEdicionIdiomas()">
+        <i class="fa-regular fa-pen-to-square"></i>
+    </span>
+    <ng-container *ngIf="!modoEdicionIdiomas">
+        <p class="text-medium" *ngFor="let idioma of curriculumUsuario?.idiomas">
+            {{idioma.nombre}} ({{idioma.nivel}})
+        </p>
+    </ng-container>
+    <div *ngIf="modoEdicionIdiomas">
+        <div *ngFor="let idioma of curriculumIdiomas; let i = index" class="d-flex w-100 my-3">
+            <div class="w-50">
+                <input [(ngModel)]="curriculumIdiomas[i].nombre" class="form-control my-3" placeholder="Nombre del Idioma">
+                <input [(ngModel)]="curriculumIdiomas[i].nivel" class="form-control my-3" placeholder="Nivel">
+            </div>
+            <div class="d-flex justify-content-center align-items-center mx-5">
+                <button (click)="eliminarIdioma(i)" class="btn-delete">Eliminar</button>
+            </div>
+            
         </div>
-        <div class="m-5 position-relative">
-            <h1 class="text-big">Idiomas</h1><span class="position-absolute update-icon"><i class="fa-regular fa-pen-to-square"></i></span>
-            <p class="text-medium">Tecnico</p>
+        <button (click)="agregarIdioma()" class="mx-3 btn-add">Agregar Idioma</button>
+        <button (click)="guardarCambiosIdiomas()" class="mx-3 text-white btn-close-session">Guardar</button>
+    </div>
+</div>
+
+<!-- Conocimientos -->
+<div class="m-5 position-relative">
+    <h1 class="text-big">Conocimientos</h1>
+    <span class="position-absolute update-icon" *ngIf="!modoEdicionConocimientos" (click)="activarEdicionConocimientos()">
+        <i class="fa-regular fa-pen-to-square"></i>
+    </span>
+    <ng-container *ngIf="!modoEdicionConocimientos">
+        <p class="text-medium" *ngFor="let conocimiento of curriculumUsuario?.conocimientos">
+            {{conocimiento.nombre}} ({{conocimiento.nivel}})
+        </p>
+    </ng-container>
+    <div *ngIf="modoEdicionConocimientos">
+        <div class="d-flex" *ngFor="let conocimiento of curriculumConocimientos; let i = index" class="d-flex w-100 my-3">
+            <div class="w-50">
+                <input [(ngModel)]="curriculumConocimientos[i].nombre" class="form-control my-3" placeholder="Nombre del Conocimiento">
+                <input [(ngModel)]="curriculumConocimientos[i].nivel" class="form-control my-3" placeholder="Nivel">
+            </div>
+            <div class="d-flex justify-content-center align-items-center mx-5">
+                <button (click)="eliminarConocimiento(i)" class="btn-delete">Eliminar</button>
+            </div>
+            
         </div>
-        <div class="m-5 position-relative">
-            <h1 class="text-big">Conocimientos</h1><span class="position-absolute update-icon"><i class="fa-regular fa-pen-to-square"></i></span>
-            <p class="text-medium">Tecnico</p>
-        </div>
+        <button (click)="agregarConocimiento()" class="mx-3 btn-add">Agregar Conocimiento</button>
+        <button (click)="guardarCambiosConocimientos()" class="mx-3 text-white btn-close-session">Guardar</button>
+    </div>
+</div>
+
+
     </div>
 </main>
+
+
+
 <footer class="d-flex justify-content-center align-items-center py-3 text-white">
     &copy; CompuEmpleo todos los derechos reservados 2023
 </footer>

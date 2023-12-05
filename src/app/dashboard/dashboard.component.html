@@ -1,5 +1,5 @@
 
-    <header class=" mt-5 vw-100  h-10 d-flex justify-content-between px-5 z-index bg-azul">
+    <header class=" vw-100  h-10 d-flex justify-content-between px-5 z-index bg-azul">
         <div class="d-flex justify-content-center align-items-center">
             <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
         </div>
@@ -8,9 +8,9 @@
                 <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative despliegue" >Opciones de empleo
                     <div class="opciones-adicionales p-absolute bg-light text-dark">
                         <ul class="list-unstyled" id="listaOpEmpleo">
-                            <li>Buscar empleo</li>
+                            <li (click)="navegarJobSearch()">Buscar empleo</li>
                             <li>Consultar postulaciones</li>
-                            <li>Hacer hoja de vida</li>
+                            <li (click)="navegarCurriculum()">Hacer hoja de vida</li>
                         </ul>
                     </div>
                 </li>
@@ -24,7 +24,6 @@
                          <ul class="list-unstyled" id="listaPerfil">
                             <li>Perfil</li>
                             <li>Actualizar datos</li>
-                            <li>Hoja de vida</li>
                             <li>Configuracion</li>
                          </ul>
                         <button class="text-white btn-close-session" (click)="navegarLogin()">Cerrar sesión</button>
@@ -40,7 +39,7 @@
                 <h1>Bienvenido {{nombre}}</h1>
             </div>
             <div class="d-flex align-items-center justify-content-center w-100">
-                <div class="mx-3 w-25 p-4 d-flex justify-content-around align-items-center m-4 border-radius10 bg-gradient text-white " >
+                <div class="mx-3 w-25 p-4 d-flex justify-content-around align-items-center m-4 border-radius10 bg-gradient text-white " (click)="navegarJobSearch()">
                     <i class="fa-solid fa-magnifying-glass fa-4x" style="color: white;"></i>
                     <h1>Buscar empleo</h1>
                 </div>
@@ -76,6 +75,6 @@
             
         </div>
     </main>
-    <footer>
-
+    <footer class="d-flex justify-content-center align-items-center py-3 text-white">
+        &copy; CompuEmpleo todos los derechos reservados 2023
     </footer>

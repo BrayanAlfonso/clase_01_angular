@@ -99,7 +99,7 @@ main p {
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     top: 110%;
-    left: -220%;
+    left: -200%;
     visibility: hidden;
     opacity: 0;
     transition: 0.4s;
@@ -158,7 +158,7 @@ h1{
 
 .p-absolute{
     position: absolute;
-    top: 110%;
+    top: 100%;
 }
 
 .border-radius10{
@@ -192,3 +192,31 @@ h1{
   }
 
 
+.imgCirculo{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.text-medium{
+    font-size: 25px !important;
+}
+
+.text-small{
+    font-size: 20px !important;
+}
+
+.text-big{
+    font-size: 40px;
+}
+
+.update-icon{
+    right: 0;
+}
+
+.margin-button{
+    margin-bottom: 50px;
+}
+footer{
+    background-color: #004f83;
+}

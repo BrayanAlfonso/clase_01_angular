@@ -1,5 +1,5 @@
 
-    <header class="vw-100 position-fixed h-10 d-flex justify-content-between px-5 z-index bg-azul">
+    <header class="w-100 position-fixed h-10 d-flex justify-content-between px-5 z-index bg-azul">
         <div class="d-flex justify-content-center align-items-center">
             <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
         </div>
@@ -11,7 +11,7 @@
             </ul>
         </div>
     </header>
-    <main class="pt-100">
+    <main class="pt-100 h-90">
 
 
         <div class="d-flex vw-100 h-100 justify-content-center px-5">
@@ -19,13 +19,13 @@
                 <img src="assets/images/register.jpg" alt="Imagen register">
                 <p>Registrate con nosotros para tener una experiencia unica</p>
             </div>
-            <div class="w-75 h-100 d-flex flex-column align-items-center justify-content-center p-5">
+            <div class="w-50 h-100 d-flex flex-column align-items-center justify-content-center p-5">
                 <h4>Registrate</h4>
                 <div class="form w-100">
                     <div class="d-flex justify-content-center div-main" id="divContentForms">
                         <div>
                             <label for="tipoID" class="form-label">Tipo de identificación</label>
-                            <select name="tipoID" id="tipoID" class="form-select border border-success">
+                            <select name="tipoID" id="tipoID" class="form-control border border-success">
                                 <option value="CC">CC</option>
                                 <option value="TI">TI</option>
                                 <option value="CE">CE</option>
@@ -38,6 +38,11 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center div-main" id="divContentForms">
+                        <div class="divName">
+                            <label for="name" class="form-label">Name:</label>
+                            <input name="name" id="name" class="form-control" (change)="validarCampos()" [(ngModel)]="inputName">
+                            <span class="fbInput">{{infoName}}</span>
+                        </div>
                         <div class="divEmail">
                             <label for="email" class="form-label">Email:</label>
                             <input name="email" id="email" class="form-control" (change)="validarCampos()" [(ngModel)]="inputEmail">
@@ -64,7 +69,7 @@
             
         </div>
     </main>
-    <footer>
-
+    <footer class="d-flex justify-content-center align-items-center py-3 text-white">
+        &copy; CompuEmpleo todos los derechos reservados 2023
     </footer>
 

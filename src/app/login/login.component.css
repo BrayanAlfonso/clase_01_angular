@@ -5,6 +5,9 @@
     z-index: 999;
 }
 
+.h-90{
+  height: 94.6%;
+}
 ::ng-deep .green-snackbar {
     background-color: green;
     color: white;

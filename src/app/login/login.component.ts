@@ -1,14 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import {  MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Credencial } from '../app.component';
 
-interface Credencial {
-  tipoID: string;
-  ID: string;
-  nombre:string;
-  email: string;
-  contraseña: string;
-}
+
 
 @Component({
   selector: 'app-login',
@@ -18,7 +13,6 @@ interface Credencial {
 
 
 export class LoginComponent {
-  public credenciales: Credencial[] = [];
 
   credencialEncontrada:boolean=false
   // campo=''
@@ -29,43 +23,20 @@ export class LoginComponent {
   infoPassword:string=''
 
   constructor(public router: Router, private _snackBar: MatSnackBar){
-    if(!localStorage.getItem("data")){
-      this.insertData()
-    }
+
     
   }
-
-  insertData(){
-    this.credenciales = [
-      {
-        tipoID: "CC",
-        ID: "1019762839",
-        nombre:'Brayan',
-        email: "Brayanpaloma19b@gmail.com",
-        contraseña: "Brayan123@"
-      },
-      {
-        tipoID: "CC",
-        ID: "123456789",
-        nombre:"Juan",
-        email: "Juan@gmail.com",
-        contraseña: "Juan123"
-      }
-    ];
-
-    localStorage.setItem('data', JSON.stringify(this.credenciales))
-  }
-
-
 
 
   buscarUsuario(email: String, password:String){
     let credencialesString = localStorage.getItem('data');
     if (credencialesString) {
       let credenciales = JSON.parse(credencialesString);  
-      credenciales.some((credencial: { email: string, contraseña:string,  nombre:string}) => {
+      credenciales.some((credencial: { ID: string, email: string, contraseña:string,  nombre:string}) => {
         if(credencial.email==email && credencial.contraseña==password){
-          localStorage.setItem('email',credencial.nombre)
+          localStorage.setItem('name',credencial.nombre)
+          localStorage.setItem('email', credencial.email)
+          localStorage.setItem('id', credencial.ID)
           this.credencialEncontrada=true
           console.log(this.credencialEncontrada)
         }
@@ -151,7 +122,7 @@ export class LoginComponent {
     }
   }
 
-
+  
 
   navegarRegister(){
     this.router.navigateByUrl('/register')

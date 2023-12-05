@@ -4,9 +4,7 @@
 .imagenBus{
     height: 350px!important;
 }
-.z-index{
-    z-index: 999;
-}
+
 .ml-14{
     margin-left: 14%;
 }
@@ -23,6 +21,10 @@
     width: 100%;
 
 }
+
+.h-90{
+    height: 94.6%;
+  }
 
 /* Estilo de la imagen */
 .contenedor-imagen img {

@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JobsearchComponent } from './jobsearch/jobsearch.component';
+import { CurriculumComponent } from './curriculum/curriculum.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    JobsearchComponent,
+    CurriculumComponent
   ],
   imports: [
     BrowserModule,

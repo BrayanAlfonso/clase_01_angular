@@ -1,0 +1,68 @@
+
+<header class=" vw-100  h-10 d-flex justify-content-between px-5 z-index bg-azul">
+    <div class="d-flex justify-content-center align-items-center">
+        <img src="assets/images/IconAngular.png" alt="Icono angular" class="icon">
+    </div>
+    <div class="w-50 d-flex align-items-center justify-content-around">
+        <ul class="d-flex justify-content-around align-items-center list-unstyled text-white lista2">
+            <li class="h-100 d-flex align-items-center mx-2 d-flex flex-column position-relative despliegue" >Opciones de empleo
+                <div class="opciones-adicionales p-absolute bg-light text-dark">
+                    <ul class="list-unstyled" id="listaOpEmpleo">
+                        <li>Buscar empleo</li>
+                        <li>Consultar postulaciones</li>
+                        <li (click)="navegarCurriculum()">Hacer hoja de vida</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="h-100 d-flex align-items-center mx-2">Nuestros servicios</li>
+            <li class="h-100 d-flex align-items-center mx-2">Contactanos</li>
+            <li class="liMenuUser position-relative margin-icon">
+                <i class="fas fa-user fa-2x " style="color: white;"></i>
+                <div class="menuUser position-absolute p-4 bg-light text-dark widthLista d-flex flex-column">
+                    <h1>Bienvenido {{nombre}}</h1>
+                    <h3>Tu perfil</h3>
+                     <ul class="list-unstyled" id="listaPerfil">
+                        <li>Perfil</li>
+                        <li>Actualizar datos</li>
+                        <li>Configuracion</li>
+                     </ul>
+                    <button class="text-white btn-close-session" (click)="navegarLogin()">Cerrar sesión</button>
+                </div>
+                
+            </li>
+        </ul>
+    </div>
+
+</header>
+<div class="divBorde bg-azul h-30 d-flex flex-column align-items-center justify-content-center">
+    <div class="mt-4 text-white">
+        <h1>Bienvenido {{nombre}}</h1>
+    </div>
+    <div class="d-flex align-items-center justify-content-center w-100 m-5">
+        <div class="d-flex w-40 bg-light p-3 border-radius10">
+            <input class="form-control border border-0" type="text" placeholder="Cargo a aspirar">
+            <input class="form-control border-left border-0" type="text" placeholder="Ciudad">
+        </div>
+    </div>
+</div>
+
+<main class="pt-100">
+    <div class="m-3 p-3 border border-1">
+      <div class="row">
+        <div class="col-md-6 " *ngFor="let oferta of ofertas">
+          <div class="card-sales p-3 my-3 w-100">
+            <h1>{{ oferta.nombre }}</h1>
+            <div class="d-flex justify-content-between mx-3">
+              <p class="text-small">Cargo: {{ oferta.cargo }}</p>
+              <p class="text-small">Lugar: {{ oferta.lugar }}</p>
+            </div>
+            <p class="text-small mx-3">Descripcion: {{ oferta.descripcion }}</p>
+            <button class="text-white mx-3 btn-close-session" (click)="aplicarOferta(oferta.id)">Aplicar a oferta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<footer class="d-flex justify-content-center align-items-center py-3 text-white">
+    &copy; CompuEmpleo todos los derechos reservados 2023
+</footer>

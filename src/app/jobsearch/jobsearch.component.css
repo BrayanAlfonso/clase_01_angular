@@ -1,7 +1,9 @@
 .h-10{
     height: 10%;
 }
-
+.w-40{
+    width: 40%;
+}
 
 .ml-14{
     margin-left: 14%;
@@ -11,8 +13,23 @@
     margin: 30px; 
 }
 
+.border-left{
+    border-left: 1px solid grey !important;
+    border-radius: 0;
+}
+/* Anular el efecto de :hover en el input cuando está enfocado (clic) */
+input:focus:hover {
+    border-color: #ced4da; /* Puedes ajustar el color del borde según tus necesidades */
+    box-shadow: none; /* Quitar cualquier sombra si está presente */
+    /* Agrega más propiedades si es necesario */
+  }
+  input:focus {
+    border-color: #ced4da; /* Puedes ajustar el color del borde según tus necesidades */
+    box-shadow: none; /* Quitar cualquier sombra si está presente */
+    /* Agrega más propiedades si es necesario */
+  }
 
-
+  
 .pt-100{
     padding-top: 100px;
 }
@@ -192,3 +209,30 @@ h1{
   }
 
 
+/* Estilo general de la tarjeta */
+.card-sales {
+    width: 50%;
+    height: 200px;
+    border: 1px solid gainsboro;
+    box-shadow: 10px 5px 5px gainsboro;
+    overflow: hidden;
+  }
+  
+  /* Estilo específico del texto dentro de la tarjeta */
+  .card-sales p {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  /* Opcional: Estilo para los encabezados dentro de la tarjeta */
+  .card-sales h1 {
+    font-size: 30px; /* Ajusta el tamaño del encabezado según tus necesidades */
+    margin-bottom: 10px; /* Ajusta el margen inferior según tus necesidades */
+  }
+  
+  
+
+  .text-small{
+    font-size: 20px !important;
+}

@@ -10,7 +10,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   
 })
 export class DashboardComponent {
-  nombreJS=JSON.stringify(localStorage.getItem('email'))
+  nombreJS=JSON.stringify(localStorage.getItem('name'))
   nombre: String = JSON.parse(this.nombreJS)
   titulo:String=''
   contenido:String=''
@@ -61,7 +61,18 @@ export class DashboardComponent {
     }
   }
 
+  navegarJobSearch(){
+    this.router.navigateByUrl('/JobSearch')
+  }
+
   navegarLogin(){
+    localStorage.removeItem('id')
+    localStorage.removeItem('name')
+    localStorage.removeItem('email')
     this.router.navigateByUrl('/')
+  }
+
+  navegarCurriculum(){
+    this.router.navigateByUrl('/Curriculum')
   }
 }

@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
-
-interface Credencial {
-  tipoID: string;
-  ID: string;
-  nombre: string;
-  contraseña: string;
-}
+import { Credencial } from '../app.component';
 
 @Component({
   selector: 'app-register',
@@ -17,9 +10,11 @@ interface Credencial {
 })
 export class RegisterComponent {
     inputId:string=''
+    inputName:string=''
     inputEmail:string=''
     inputPassword:string=''
     infoId:string=''
+    infoName:string=''
     infoEmail:string=''
     infoPassword:string=''
 
@@ -37,6 +32,7 @@ export class RegisterComponent {
   validarCampos(){
 
     const numberRegex:RegExp=/^[0-9]{7,11}$/
+    const nameRegex:RegExp=/^[a-zA-Z ]/
     const emailRegex:RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     const passwordRegex: RegExp =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
 
@@ -44,6 +40,7 @@ export class RegisterComponent {
     const id = (document.getElementById("ID") as HTMLInputElement)
     const email = (document.getElementById("email") as HTMLInputElement)
     const password = (document.getElementById("pass") as HTMLInputElement)
+    const name = (document.getElementById("name") as HTMLInputElement)
 
 
     if(this.inputEmail!=null || this.inputEmail!= ''){
@@ -56,6 +53,19 @@ export class RegisterComponent {
         email.classList.remove('success')
         email.classList.add('error')
         this.infoEmail='Lo sentimos, por favor ingresa un correo valido.'
+      }
+    }
+
+    if(this.inputName!=null || this.inputName!= ''){
+      console.log("Entro al if")
+      if(nameRegex.test(this.inputName)){
+        name.classList.remove('error')
+        name.classList.add('success')
+        this.infoName=''
+      }else{
+        name.classList.remove('success')
+        name.classList.add('error')
+        this.infoName='Lo sentimos, por favor ingresa un nombre valido.'
       }
     }
     if(this.inputPassword!=null || this.infoPassword!=''){
@@ -90,6 +100,7 @@ export class RegisterComponent {
     
     const tipoID = (document.getElementById("tipoID") as HTMLSelectElement).value
     const ID = (document.getElementById("ID") as HTMLInputElement).value
+    const name = (document.getElementById("name") as HTMLInputElement).value
     const email = (document.getElementById("email") as HTMLInputElement).value
     const password = (document.getElementById("pass") as HTMLInputElement).value
     console.log(tipoID,ID,email,password)
@@ -97,8 +108,10 @@ export class RegisterComponent {
     const nuevasCredenciales={
       tipoID:tipoID,
       ID:ID,
-      nombre:email, 
-      contraseña:password
+      nombre:name,
+      email:email, 
+      contraseña:password,
+      ofertas:[]
     }
     this.credenciales.push(nuevasCredenciales)
 
@@ -113,11 +126,15 @@ export class RegisterComponent {
   clearForm() {
     (document.getElementById("tipoID") as HTMLSelectElement).value = "";
     (document.getElementById("ID") as HTMLInputElement).value = "";
+    (document.getElementById("name") as HTMLInputElement).value = "";
     (document.getElementById("email") as HTMLInputElement).value = "";
     (document.getElementById("pass") as HTMLInputElement).value = "";
   }
 
   navegarLogin(){
+    localStorage.removeItem('id')
+    localStorage.removeItem('name')
+    localStorage.removeItem('email')
     this.router.navigateByUrl('/')
   }
 }

@@ -5,13 +5,15 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JobsearchComponent } from './jobsearch/jobsearch.component';
 import { CurriculumComponent } from './curriculum/curriculum.component';
+import { JobopeningsComponent } from './jobopenings/jobopenings.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'dashboard', component:DashboardComponent},
   {path:'JobSearch', component:JobsearchComponent},
-  {path:'Curriculum', component: CurriculumComponent}
+  {path:'Curriculum', component: CurriculumComponent},
+  {path:'JobOpenings', component: JobopeningsComponent}
 ];
 
 @NgModule({

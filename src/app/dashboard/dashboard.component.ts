@@ -75,4 +75,8 @@ export class DashboardComponent {
   navegarCurriculum(){
     this.router.navigateByUrl('/Curriculum')
   }
+
+  navegarJobOpenings(){
+    this.router.navigateByUrl('/JobOpenings')
+  }
 }

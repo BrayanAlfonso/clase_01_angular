@@ -111,7 +111,8 @@ export class RegisterComponent {
       nombre:name,
       email:email, 
       contraseña:password,
-      ofertas:[]
+      ofertas:[],
+      rol:'1'
     }
     this.credenciales.push(nuevasCredenciales)
 

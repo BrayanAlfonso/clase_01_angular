@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JobsearchComponent } from './jobsearch/jobsearch.component';
 import { CurriculumComponent } from './curriculum/curriculum.component';
 import { JobopeningsComponent } from './jobopenings/jobopenings.component';
+import { DashboardadminComponent } from './dashboardadmin/dashboardadmin.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { JobopeningsComponent } from './jobopenings/jobopenings.component';
     DashboardComponent,
     JobsearchComponent,
     CurriculumComponent,
-    JobopeningsComponent
+    JobopeningsComponent,
+    DashboardadminComponent
   ],
   imports: [
     BrowserModule,

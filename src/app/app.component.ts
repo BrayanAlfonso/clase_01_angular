@@ -17,6 +17,7 @@ export interface Credencial {
   email: string;
   contraseña: string;
   ofertas:number[]
+  rol:string
 }
 
 export interface Estudio {
@@ -79,7 +80,8 @@ export class AppComponent {
         nombre:'Brayan',
         email: "Brayanpaloma19b@gmail.com",
         contraseña: "Brayan123@",
-        ofertas:[1]
+        ofertas:[1],
+        rol:'1'
       },
       {
         tipoID: "CC",
@@ -87,7 +89,8 @@ export class AppComponent {
         nombre:"Juan",
         email: "Juan@gmail.com",
         contraseña: "Juan123",
-        ofertas:[2]
+        ofertas:[2],
+        rol:'2'
       }
     ];
 

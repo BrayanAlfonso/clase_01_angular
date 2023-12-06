@@ -14,7 +14,8 @@ import { Credencial } from '../app.component';
 
 export class LoginComponent {
 
-  credencialEncontrada:boolean=false
+  credencialEncontrada1:boolean=false
+  credencialEncontrada2:boolean=false
   // campo=''
   storage:string=''
   inputEmail:string=''
@@ -28,26 +29,38 @@ export class LoginComponent {
   }
 
 
-  buscarUsuario(email: String, password:String){
+  buscarUsuario(email: String, password:String, rol:String){
     let credencialesString = localStorage.getItem('data');
     if (credencialesString) {
       let credenciales = JSON.parse(credencialesString);  
-      credenciales.some((credencial: { ID: string, email: string, contraseña:string,  nombre:string}) => {
-        if(credencial.email==email && credencial.contraseña==password){
+      credenciales.some((credencial: { ID: string, email: string, contraseña:string,  nombre:string, rol:string}) => {
+        if(credencial.email==email && credencial.contraseña==password && credencial.rol=='1' && credencial.rol==rol){
           localStorage.setItem('name',credencial.nombre)
           localStorage.setItem('email', credencial.email)
           localStorage.setItem('id', credencial.ID)
-          this.credencialEncontrada=true
-          console.log(this.credencialEncontrada)
+          this.credencialEncontrada1=true
+          console.log(this.credencialEncontrada1)
+        }else if(credencial.email==email && credencial.contraseña==password && credencial.rol=='2' && credencial.rol==rol){
+          localStorage.setItem('name',credencial.nombre)
+          localStorage.setItem('email', credencial.email)
+          localStorage.setItem('id', credencial.ID)
+          this.credencialEncontrada2=true
+          console.log(this.credencialEncontrada2)
         }
       });
 
-      if(this.credencialEncontrada){
+      if(this.credencialEncontrada1){
         this._snackBar.open("Bienvenido al login","",{
           duration:4000,
           panelClass: ['green-snackbar']
         })
         this.router.navigateByUrl('/dashboard')
+      }else if(this.credencialEncontrada2){
+        this._snackBar.open("Bienvenido al login","",{
+          duration:4000,
+          panelClass: ['green-snackbar']
+        })
+        this.router.navigateByUrl('/DashboardAdmin')
       }else{
           // Simple message with an action.
           this._snackBar.open("Lo sentimos tus credenciales de acceso son incorrectas","",{
@@ -109,10 +122,11 @@ export class LoginComponent {
   navegar(){
     let email = (document.getElementById("email") as HTMLInputElement).value
     let password = (document.getElementById("password") as HTMLInputElement).value
-    console.log(email,password)
+    let rol =(document.getElementById("rol") as HTMLInputElement).value
+    console.log(email,password, rol)
 
     if( email!="" && password!="" && email!=null && password!=null && email!=undefined && password!=undefined){
-      this.buscarUsuario(email,password)
+      this.buscarUsuario(email,password, rol)
     }else{
       // Simple message with an action.
       this._snackBar.open("No has completado los campos solicitados","",{
@@ -126,5 +140,9 @@ export class LoginComponent {
 
   navegarRegister(){
     this.router.navigateByUrl('/register')
+  }
+
+  navegarDashboardadmin(){
+    this.router.navigateByUrl('/DashboardAdmin')
   }
 }

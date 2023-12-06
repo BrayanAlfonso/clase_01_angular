@@ -23,6 +23,14 @@
                     <input class="w-100 form-control" type="password" id="password" (change)="validarCampos()" [(ngModel)]="inputPassword">
                     <span class="fbInput">{{infoPassword}}</span>
                 </div>
+                <div class="divRol">
+                    <label for="rol" class="form-label">Contraseña:</label><br>
+                    <select name="rol" id="rol" class="form-control">
+                        <option value="1">Usuario</option>
+                        <option value="2">Administrador</option>
+                        
+                    </select>
+                </div>
                 <div class="d-flex justify-content-center align-items-center m-3">
                     <button (click)="navegar()" class="btn btn-outline-success mx-2">Login</button>
                     <!-- <button (click)="saludarMessage()" class="btn btn-outline-success mx-2">Da click para el saludo</button>
